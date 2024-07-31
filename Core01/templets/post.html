@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Welcome to Iblogs{% endblock %}
+{% block content %}
+<div class="body">
+    <div class="post-container">
+        <h1 class="post-title">{{ post.title }}</h1>
+        <div class="post-content">
+            {{ post.content | safe }}
+        </div>
+        <div class="post-image">
+            {{ post.image_tag2 }}
+        </div>
+    </div>
+    </div>
+{% endblock %}
