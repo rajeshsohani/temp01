@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-favcgkk8%_-cm7852u0_6wwhj5n9s$2h1xc^e-dng%rrhw=8f0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-ALLOWED_HOSTS = ['myblog.onrender.com', 'www.myblog.com','www.rajeshblog.com']
-#ALLOWED_HOSTS = []
+DEBUG = True
+#ALLOWED_HOSTS = ['myblog.onrender.com', 'www.myblog.com','www.rajeshblog.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',#added this
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -86,7 +87,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-DATABASES["default"]=dj_database_url.parse("postgresql://rajesh_django_render_user:o8XJXNpTAvvkC2lnY17ITpkNDt39xIeH@dpg-cqkv590gph6c738ma1qg-a.oregon-postgres.render.com/rajesh_django_render")
+#DATABASES["default"]=dj_database_url.parse("postgresql://rajesh_django_render_user:o8XJXNpTAvvkC2lnY17ITpkNDt39xIeH@dpg-cqkv590gph6c738ma1qg-a.oregon-postgres.render.com/rajesh_django_render")
 #postgresql://rajesh_django_render_user:o8XJXNpTAvvkC2lnY17ITpkNDt39xIeH@dpg-cqkv590gph6c738ma1qg-a.oregon-postgres.render.com/rajesh_django_render
 
 # Password validation
@@ -125,6 +126,7 @@ USE_TZ = True
 
 #STATIC_URL = 'static/'
 STATIC_URL = 'Core01/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'#addes this
 STATICFILES_DIRS = [os.path.join(BASE_DIR,"static")]
 
 
